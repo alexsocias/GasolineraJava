@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gasolinerajava.GraciasCompraController">
+    <Label text="Gracias por su compra" />
+    <Button fx:id="btnTicket" text="Ticket" onAction="#handleTicket" />
+    <Button fx:id="btnVolverEmpezar" text="Volver a empezar" onAction="#handleVolverEmpezar" />
+</VBox>
