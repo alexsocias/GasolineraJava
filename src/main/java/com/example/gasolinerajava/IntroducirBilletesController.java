@@ -20,8 +20,6 @@ public class IntroducirBilletesController {
 
     @FXML
     private void handleAceptarBilletes() throws Exception {
-        // Realiza la acción correspondiente cuando se presiona el botón Aceptar
-        // Por ejemplo, verificar el monto ingresado y mostrar la siguiente pantalla:
         int billetes = Integer.parseInt(txtBilletes.getText());
         main.showGraciasCompra();
     }
