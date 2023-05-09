@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class Main extends Application {
 
     private Stage primaryStage;
@@ -108,7 +111,20 @@ public class Main extends Application {
         this.metodoPago = metodoPago;
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    //public static void main(String[] args) {
+    //    try {
+    //        // Database Connection
+    //        Connection dbConnection = dbcon.getConnection();
+//
+    //        // Database Table
+    //        table.createTable(dbConnection);
+    //        table.insertData(dbConnection);
+//
+    //        // Close the database connection
+    //        dbConnection.close();
+    //    } catch (SQLException e) {
+    //        e.printStackTrace();
+    //    }
+    //}
+
 }
