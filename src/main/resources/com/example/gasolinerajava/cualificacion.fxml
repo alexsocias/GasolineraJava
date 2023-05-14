@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="214.0" style="-fx-background-color: #FFA500;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.CualificacionController">
+    <children>
+        <Label layoutX="55.0" layoutY="27.0" prefHeight="26.0" prefWidth="104.0" text="Valora el servicio" />
+        <Slider fx:id="slider" layoutX="37.0" layoutY="71.0" max="5.0" min="1.0" value="3.0" />
+        <Button fx:id="btnValoracion" layoutX="80.0" layoutY="104.0" onAction="#handleValoracion" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" text="Valorar" />
+    </children>
+</AnchorPane>

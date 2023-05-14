@@ -1,5 +1,5 @@
-Combustible: Gasolina
+Combustible: Diesel
 Litros: null
-Importe: 5
+Importe: 10
 Método de pago: Efectivo
-numero de miembro:SQsq
+numero de miembro:52

@@ -10,5 +10,6 @@
     <Label fx:id="lblMetodoPago" text="Método de pago: " style="-fx-text-fill: #000000;" />
     <Label fx:id="lblIsMember" text="Socio: " style="-fx-text-fill: #000000;" />
     <Label fx:id="lblMemberNumber" text="Número de socio: " style="-fx-text-fill: #000000;" />
+    <Button fx:id="btnValorar" onAction="#handleValorar" text="Valorar servicio" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
     <Button fx:id="btnVolverEmpezar" onAction="#handleVolverEmpezar" text="Volver a empezar" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
 </VBox>

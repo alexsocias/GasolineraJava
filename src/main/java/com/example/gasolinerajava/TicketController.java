@@ -26,8 +26,13 @@ public class TicketController {
 
     @FXML
     private Button btnVolverEmpezar;
+
+    @FXML
+    private Button btnValorar;
+
     @FXML
     private Label lblIsMember;
+
     @FXML
     private Label lblMemberNumber;
 
@@ -42,7 +47,7 @@ public class TicketController {
         lblLitros.setText("Litros: " + litros);
         lblImporte.setText("Importe: " + importe);
         lblMetodoPago.setText("Método de pago: " + metodoPago);
-        lblIsMember.setText("es miembro: "+ isMember);
+        lblIsMember.setText         ("es miembro: "+ isMember);
         lblMemberNumber.setText("número de miembro: "+ memberNumber);
 
         try {
@@ -69,7 +74,12 @@ public class TicketController {
 
     @FXML
     private void handleVolverEmpezar() throws Exception {
+        main.showLoginScreen();
+    }
 
-        main.showPantallaInicial();
+    @FXML
+    private void handleValorar() throws Exception {
+        main.showCualificacion();
     }
 }
+

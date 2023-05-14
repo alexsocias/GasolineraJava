@@ -8,16 +8,15 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-import static com.example.gasolinerajava.BBDD.createBBDD;
-import static com.example.gasolinerajava.BBDD.getUsuarios;
+/*import static com.example.gasolinerajava.BBDD.createBBDD;
+import static com.example.gasolinerajava.BBDD.getUsuarios;*/
 
 public class Main extends Application {
     public static void main(String[] args) throws SQLException {
-        createBBDD();
-        getUsuarios();
+       /* createBBDD();
+        getUsuarios();*/
         launch(args);
     }
-
 
     private Stage primaryStage;
     private String combustible;
@@ -108,6 +107,18 @@ public class Main extends Application {
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+        // Llamamos a showCualificacion después de mostrar el ticket
+    }
+
+    public void showCualificacion() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Cualificacion.fxml"));
+        Parent root = loader.load();
+        CualificacionController controller = loader.getController();
+        controller.setMain(this);
+
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
     public void showGraciasCompra() throws Exception {
@@ -123,9 +134,11 @@ public class Main extends Application {
     public void setCombustible(String combustible) {
         this.combustible = combustible;
     }
+
     public String getLitros() {
         return this.litros;
     }
+
     public void setLitros(String litros) {
         this.litros = litros;
     }
@@ -137,6 +150,7 @@ public class Main extends Application {
     public void setMetodoPago(String metodoPago) {
         this.metodoPago = metodoPago;
     }
+
     public void setIsMember(boolean isMember) {
         this.isMember = isMember;
     }
@@ -144,5 +158,5 @@ public class Main extends Application {
     public void setMemberNumber(String memberNumber) {
         this.memberNumber = memberNumber;
     }
-
 }
+

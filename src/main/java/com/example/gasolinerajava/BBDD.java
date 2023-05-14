@@ -1,4 +1,4 @@
-package com.example.gasolinerajava;
+/*package com.example.gasolinerajava;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -166,4 +166,4 @@ public abstract class BBDD {
             throw new RuntimeException(e);
         }
     }
-}
+}*/
