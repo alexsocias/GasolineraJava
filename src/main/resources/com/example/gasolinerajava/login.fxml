@@ -6,7 +6,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="304.0" prefWidth="377.0" spacing="10" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.LoginController" style="-fx-background-color: #FFA500;" >
+<VBox alignment="CENTER" prefHeight="304.0" prefWidth="377.0" spacing="10"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.gasolinerajava.LoginController"
+      style="-fx-background-color: #FFA500;">
     <children>
         <Label text="¿Es usted socio?" style="-fx-font-weight: bold; -fx-text-fill: #000000;" />
         <RadioButton fx:id="siSocioRadioButton" text="Sí" style="-fx-text-fill: #000000;" />

@@ -58,8 +58,7 @@ public abstract class BBDD {
             );
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario (" +
                     "ID INT UNSIGNED PRIMARY KEY AUTO_INCREMENT," +
-                    "nombre VARCHAR(50)," +
-                    "nie VARCHAR(50))"
+                    "numero_socio int)"
             );
 
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Calificaciones (" +
@@ -93,11 +92,11 @@ public abstract class BBDD {
             statement.executeUpdate("INSERT INTO Combustible (tipo, precio_litro) VALUES ('Gasolina', 1.5)");
 
             // Inserciones en la tabla Usuario
-            statement.executeUpdate("INSERT INTO Usuario (nombre, nie) VALUES ('Juan Pérez', '123456789')");
-            statement.executeUpdate("INSERT INTO Usuario (nombre, nie) VALUES ('María Rodríguez', '987654321')");
-            statement.executeUpdate("INSERT INTO Usuario (nombre, nie) VALUES ('Carlos López', '456789123')");
-            statement.executeUpdate("INSERT INTO Usuario (nombre, nie) VALUES ('Ana Gómez', '321654987')");
-            statement.executeUpdate("INSERT INTO Usuario (nombre, nie) VALUES ('Pedro Martínez', '789123456')");
+            statement.executeUpdate("INSERT INTO Usuario (numero_socio) VALUES ('213412')");
+            statement.executeUpdate("INSERT INTO Usuario (numero_socio) VALUES ('93827')");
+            statement.executeUpdate("INSERT INTO Usuario (numero_socio) VALUES ('2123')");
+            statement.executeUpdate("INSERT INTO Usuario (numero_socio) VALUES ('4987')");
+            statement.executeUpdate("INSERT INTO Usuario (numero_socio) VALUES ('3456')");
 
             // Inserciones en la tabla Calificaciones
             statement.executeUpdate("INSERT INTO Calificaciones (usuario_id, valoracion) VALUES (1, 5)");
@@ -107,10 +106,39 @@ public abstract class BBDD {
             statement.executeUpdate("INSERT INTO Calificaciones (usuario_id, valoracion) VALUES (5, 1)");
 
             // Cerrar conexión
-            dbConnection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean validateMember(String memberNumber) throws SQLException {
+        String query = "SELECT COUNT(*) FROM Usuario WHERE numero_socio = ?";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, memberNumber);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        int count = 0;
+        if (resultSet.next()) {
+            count = resultSet.getInt(1);
+        }
+
+        resultSet.close();
+        preparedStatement.close();
+
+        return count > 0;
+    }
+
+    public static void getUsuarios() throws SQLException {
+        String query = "SELECT * FROM Usuario";
+        ResultSet resultSet = statement.executeQuery(query);
+
+        while (resultSet.next()) {
+            int id = resultSet.getInt("ID");
+            String numero_socio = resultSet.getString("numero_socio");
+            // Process the retrieved data as needed
+            System.out.println("ID: " + id + ", Numero de Socio: " + numero_socio);
+        }
+        resultSet.close();
     }
 
     public void executeQuery(String query) throws SQLException {
