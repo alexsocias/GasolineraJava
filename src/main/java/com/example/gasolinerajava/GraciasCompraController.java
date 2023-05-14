@@ -26,7 +26,7 @@ public class GraciasCompraController {
     @FXML
     private void handleVolverEmpezar() throws Exception {
 
-        main.showPantallaInicial();
+        main.showLoginScreen();
     }
 
     private void imprimirTicket() throws Exception {
