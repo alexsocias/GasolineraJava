@@ -57,8 +57,7 @@ public abstract class BBDD {
                     "metodo VARCHAR(50))"
             );
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario (" +
-                    "ID INT UNSIGNED PRIMARY KEY AUTO_INCREMENT," +
-                    "numero_socio int)"
+                    "numero_socio INT UNSIGNED PRIMARY KEY,)"
             );
 
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Calificaciones (" +
