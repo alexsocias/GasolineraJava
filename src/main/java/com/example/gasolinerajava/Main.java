@@ -103,7 +103,7 @@ public class Main extends Application {
         controller.setMain(this);
 
         // Pasamos los nuevos datos al controlador del ticket
-        controller.setTicketInfo(combustible, importe, litros, metodoPago, isMember, memberNumber);
+        controller.setTicketInfo(combustible, importe, metodoPago, isMember, memberNumber);
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

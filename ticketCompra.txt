@@ -1,5 +1,5 @@
-Combustible: Diesel
-Litros: null
-Importe: 10
+Combustible: Gasolina
+Litros: 10,71
+Importe: null
 Método de pago: Efectivo
-numero de miembro:52
+numero de miembro:

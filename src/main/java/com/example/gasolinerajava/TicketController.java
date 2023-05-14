@@ -42,16 +42,21 @@ public class TicketController {
         this.main = main;
     }
 
-    public void setTicketInfo(String combustible, String litros, String importe, String metodoPago, boolean isMember, String memberNumber) {
+    public void setTicketInfo(String combustible, String importe, String metodoPago, boolean isMember, String memberNumber) {
+        String litros = main.getLitros(); // Obtenemos el valor de litros desde Main
+        double litrosNumeric = Double.parseDouble(litros);
+        litrosNumeric /= 1.4;
+        String litrosAdjusted = String.format("%.2f", litrosNumeric); // Convertimos de nuevo a String, con dos decimales
+
         lblCombustible.setText("Combustible: " + combustible);
-        lblLitros.setText("Litros: " + litros);
+        lblLitros.setText("Litros: " + litrosAdjusted); // Usamos el nuevo valor ajustado
         lblImporte.setText("Importe: " + importe);
         lblMetodoPago.setText("Método de pago: " + metodoPago);
-        lblIsMember.setText         ("es miembro: "+ isMember);
+        lblIsMember.setText("es miembro: "+ isMember);
         lblMemberNumber.setText("número de miembro: "+ memberNumber);
 
         try {
-            crearArchivoTicket(combustible, litros, importe, metodoPago, memberNumber);
+            crearArchivoTicket(combustible, litrosAdjusted, importe, metodoPago, memberNumber); // Usamos el nuevo valor ajustado
         } catch(IOException e) {
             e.printStackTrace();
         }
