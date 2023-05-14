@@ -1,0 +1,5 @@
+Combustible: Gasolina
+Litros: null
+Importe: 10
+Método de pago: Efectivo
+numero de miembro:150

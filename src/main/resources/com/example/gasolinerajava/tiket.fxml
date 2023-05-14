@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="198.0" prefWidth="275.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.TicketController">
-    <Label fx:id="lblTicket" style="-fx-font-weight: bold;" text="Ticket" />
-    <Label fx:id="lblCombustible" text="Combustible: " />
-    <Label fx:id="lblLitros" text="Litros: " />
-    <Label fx:id="lblImporte" text="Importe: " />
-    <Label fx:id="lblMetodoPago" text="Método de pago: " />
-    <Button fx:id="btnVolverEmpezar" onAction="#handleVolverEmpezar" text="Volver a empezar" />
+<VBox alignment="CENTER" prefHeight="198.0" prefWidth="275.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.TicketController" style="-fx-background-color: #FFA500;">
+    <Label fx:id="lblTicket" style="-fx-font-weight: bold; -fx-text-fill: #000000;" text="Ticket" />
+    <Label fx:id="lblCombustible" text="Combustible: " style="-fx-text-fill: #000000;" />
+    <Label fx:id="lblImporte" text="Importe: " style="-fx-text-fill: #000000;" />
+    <Label fx:id="lblLitros" text="Litros: " style="-fx-text-fill: #000000;" />
+    <Label fx:id="lblMetodoPago" text="Método de pago: " style="-fx-text-fill: #000000;" />
+    <Label fx:id="lblIsMember" text="Socio: " style="-fx-text-fill: #000000;" />
+    <Label fx:id="lblMemberNumber" text="Número de socio: " style="-fx-text-fill: #000000;" />
+    <Button fx:id="btnVolverEmpezar" onAction="#handleVolverEmpezar" text="Volver a empezar" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
 </VBox>

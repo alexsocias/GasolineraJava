@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="304.0" prefWidth="377.0" spacing="10" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.LoginController" style="-fx-background-color: #FFA500;" >
+    <children>
+        <Label text="¿Es usted socio?" style="-fx-font-weight: bold; -fx-text-fill: #000000;" />
+        <RadioButton fx:id="siSocioRadioButton" text="Sí" style="-fx-text-fill: #000000;" />
+        <RadioButton fx:id="noSocioRadioButton" text="No" style="-fx-text-fill: #000000;" />
+        <Label text="Número de Socio:" style="-fx-font-weight: bold; -fx-text-fill: #000000;" />
+        <TextField fx:id="numeroSocioTextField" />
+        <Button fx:id="loginButton" text="Login" disable="true" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    </children>
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+</VBox>

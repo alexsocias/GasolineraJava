@@ -3,6 +3,9 @@ package com.example.gasolinerajava;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class TicketController {
 
@@ -23,6 +26,10 @@ public class TicketController {
 
     @FXML
     private Button btnVolverEmpezar;
+    @FXML
+    private Label lblIsMember;
+    @FXML
+    private Label lblMemberNumber;
 
     private Main main;
 
@@ -30,17 +37,39 @@ public class TicketController {
         this.main = main;
     }
 
-    public void setTicketInfo(String combustible, String litros, String importe, String metodoPago) {
+    public void setTicketInfo(String combustible, String litros, String importe, String metodoPago, boolean isMember, String memberNumber) {
         lblCombustible.setText("Combustible: " + combustible);
         lblLitros.setText("Litros: " + litros);
         lblImporte.setText("Importe: " + importe);
         lblMetodoPago.setText("Método de pago: " + metodoPago);
+        lblIsMember.setText("es miembro: "+ isMember);
+        lblMemberNumber.setText("número de miembro: "+ memberNumber);
+
+        try {
+            crearArchivoTicket(combustible, litros, importe, metodoPago, memberNumber);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void crearArchivoTicket(String combustible, String litros, String importe, String metodoPago, String memberNumber) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("ticketCompra.txt"));
+        writer.write("Combustible: " + combustible);
+        writer.newLine();
+        writer.write("Litros: " + litros);
+        writer.newLine();
+        writer.write("Importe: " + importe);
+        writer.newLine();
+        writer.write("Método de pago: " + metodoPago);
+        writer.newLine();
+        writer.write("numero de miembro:" + memberNumber);
+        writer.newLine();
+        writer.close();
     }
 
     @FXML
     private void handleVolverEmpezar() throws Exception {
-        // Realiza la acción correspondiente cuando se presiona el botón Volver a empezar
-        // Por ejemplo, mostrar la pantalla inicial del proceso de compra
+
         main.showPantallaInicial();
     }
 }

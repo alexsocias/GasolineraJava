@@ -3,8 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="166.0" prefWidth="232.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.IntroducirBilletesController">
-    <Label text="Introduzca billetes" />
+<VBox alignment="CENTER" prefHeight="166.0" prefWidth="232.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.IntroducirBilletesController" style="-fx-background-color: #FFA500;">
+    <Label text="Introduzca billetes" style="-fx-font-weight: bold; -fx-text-fill: #000000;" />
     <TextField fx:id="txtBilletes" />
-    <Button fx:id="btnAceptarBilletes" onAction="#handleAceptarBilletes" text="Aceptar" />
+    <Button fx:id="btnAceptarBilletes" onAction="#handleAceptarBilletes" text="Aceptar" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Label fx:id="lblError" text="" style="-fx-text-fill: red;" />
 </VBox>

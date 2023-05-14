@@ -18,13 +18,13 @@ public class SeleccionCombustibleController {
 
     @FXML
     private void handleGasolina() throws Exception {
-
+        main.setCombustible("Gasolina");
         main.showPantallaCantidad();
     }
 
     @FXML
     private void handleDiesel() throws Exception {
-
+        main.setCombustible("Diesel");
         main.showPantallaCantidad();
     }
 }

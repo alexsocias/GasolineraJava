@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="175.0" prefWidth="253.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.SeleccionCombustibleController">
-    <Label text="Selecciona el tipo de combustible:" />
-    <Button fx:id="btnGasolina" onAction="#handleGasolina" text="Gasolina" />
-    <Button fx:id="btnDiesel" onAction="#handleDiesel" text="Diésel" />
+<VBox alignment="CENTER" prefHeight="175.0" prefWidth="253.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.SeleccionCombustibleController" style="-fx-background-color: #FFA500;">
+    <Label prefHeight="18.0" prefWidth="178.0" text="GASOLINA: 1,56€" style="-fx-text-fill: #000000;" />
+    <Label prefHeight="18.0" prefWidth="177.0" text="DIESEL: 1,38€" style="-fx-text-fill: #000000;" />
+    <Label text="Selecciona el tipo de combustible:" style="-fx-font-weight: bold; -fx-text-fill: #000000;" />
+    <Button fx:id="btnGasolina" onAction="#handleGasolina" text="Gasolina" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Button fx:id="btnDiesel" onAction="#handleDiesel" text="Diésel" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
 </VBox>

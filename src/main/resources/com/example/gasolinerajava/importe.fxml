@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="238.0" prefWidth="296.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.SeleccionCantidadController">
-    <Label text="Selecciona la cantidad:" />
-    <Button fx:id="btn5" onAction="#handle5" text="5 €" />
-    <Button fx:id="btn10" onAction="#handle10" text="10 €" />
-    <Button fx:id="btn15" onAction="#handle15" text="15 €" />
-    <Button fx:id="btn20" onAction="#handle20" text="20 €" />
-    <Button fx:id="btn50" onAction="#handle50" text="50 €" />
-    <Button fx:id="btn100" onAction="#handle100" text="100 €" />
+<VBox alignment="CENTER" prefHeight="238.0" prefWidth="296.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.SeleccionCantidadController" style="-fx-background-color: #FFA500;">
+    <Label text="Selecciona la cantidad:" style="-fx-font-weight: bold; -fx-text-fill: #000000;" />
+    <Button fx:id="btn5" onAction="#handle5" text="5 €" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Button fx:id="btn10" onAction="#handle10" text="10 €" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Button fx:id="btn15" onAction="#handle15" text="15 €" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Button fx:id="btn20" onAction="#handle20" text="20 €" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Button fx:id="btn50" onAction="#handle50" text="50 €" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Button fx:id="btn100" onAction="#handle100" text="100 €" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
 </VBox>

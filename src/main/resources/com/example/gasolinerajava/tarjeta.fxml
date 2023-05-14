@@ -3,19 +3,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="179.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.DatosTarjetaController">
-    <Label text="Introduce los datos de tu tarjeta:" />
+<VBox prefHeight="179.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.DatosTarjetaController" style="-fx-background-color: #FFA500;">
+    <Label text="Introduce los datos de tu tarjeta:" style="-fx-font-weight: bold; -fx-text-fill: #000000;" />
     <HBox spacing="20">
-        <Label text="Número de tarjeta:" />
-        <TextField fx:id="txtNumeroTarjeta" />
+        <Label text="Número de tarjeta:" style="-fx-text-fill: #000000;" />
+        <TextField fx:id="txtNumeroTarjeta" style="-fx-text-fill: #000000;" />
     </HBox>
     <HBox spacing="20">
-        <Label text="Fecha de vencimiento:" />
-        <TextField fx:id="txtFechaVencimiento" />
+        <Label text="Fecha de vencimiento:" style="-fx-text-fill: #000000;" />
+        <TextField fx:id="txtFechaVencimiento" style="-fx-text-fill: #000000;" />
     </HBox>
     <HBox spacing="20">
-        <Label text="Código de seguridad:" />
-        <TextField fx:id="txtCodigoSeguridad" />
+        <Label text="Código de seguridad:" style="-fx-text-fill: #000000;" />
+        <TextField fx:id="txtCodigoSeguridad" style="-fx-text-fill: #000000;" />
     </HBox>
-    <Button fx:id="btnConfirmar" onAction="#handleConfirmar" text="Confirmar" />
+    <Button fx:id="btnConfirmar" onAction="#handleConfirmar" text="Confirmar" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Label fx:id="lblError" text="" style="-fx-text-fill: red;" />
 </VBox>

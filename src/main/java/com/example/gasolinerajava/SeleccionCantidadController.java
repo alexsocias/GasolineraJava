@@ -60,6 +60,8 @@ public class SeleccionCantidadController {
     }
 
     private void handleCantidad(int cantidad) throws Exception {
+        main.setLitros(Integer.toString(cantidad));
         main.showPantallaMetodoPago();
     }
+
 }

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="180.0" prefWidth="220.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.GraciasCompraController">
-    <Label text="Gracias por su compra" />
-    <Button fx:id="btnTicket" onAction="#handleTicket" text="Ticket" />
-    <Button fx:id="btnVolverEmpezar" onAction="#handleVolverEmpezar" text="Volver a empezar" />
+<VBox alignment="CENTER" prefHeight="180.0" prefWidth="220.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasolinerajava.GraciasCompraController" style="-fx-background-color: #FFA500;">
+    <Label text="Gracias por su compra" style="-fx-font-weight: bold; -fx-text-fill: #000000;" />
+    <Button fx:id="btnTicket" onAction="#handleTicket" text="Ticket" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
+    <Button fx:id="btnVolverEmpezar" onAction="#handleVolverEmpezar" text="Volver a empezar" style="-fx-background-color: #000000; -fx-text-fill: #FFFFFF;" />
 </VBox>

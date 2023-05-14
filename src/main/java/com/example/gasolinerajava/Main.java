@@ -14,10 +14,25 @@ public class Main extends Application {
     private String importe;
     private String metodoPago;
 
+    private boolean isMember;
+
+    private String memberNumber;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
-        showPantallaInicial();
+        showLoginScreen();
+    }
+
+    public void showLoginScreen() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent root = loader.load();
+        LoginController controller = loader.getController();
+        controller.setMain(this);
+
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setTitle("Gasolinera Autoservicio");
+        primaryStage.show();
     }
 
     public void showPantallaInicial() throws Exception {
@@ -76,7 +91,9 @@ public class Main extends Application {
         Parent root = loader.load();
         TicketController controller = loader.getController();
         controller.setMain(this);
-        controller.setTicketInfo(combustible, litros, importe, metodoPago);
+
+        // Pasamos los nuevos datos al controlador del ticket
+        controller.setTicketInfo(combustible, importe, litros, metodoPago, isMember, memberNumber);
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -95,7 +112,9 @@ public class Main extends Application {
     public void setCombustible(String combustible) {
         this.combustible = combustible;
     }
-
+    public String getLitros() {
+        return this.litros;
+    }
     public void setLitros(String litros) {
         this.litros = litros;
     }
@@ -106,6 +125,13 @@ public class Main extends Application {
 
     public void setMetodoPago(String metodoPago) {
         this.metodoPago = metodoPago;
+    }
+    public void setIsMember(boolean isMember) {
+        this.isMember = isMember;
+    }
+
+    public void setMemberNumber(String memberNumber) {
+        this.memberNumber = memberNumber;
     }
 
     public static void main(String[] args) {
