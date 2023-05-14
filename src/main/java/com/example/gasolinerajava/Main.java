@@ -8,13 +8,13 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-/*import static com.example.gasolinerajava.BBDD.createBBDD;
-import static com.example.gasolinerajava.BBDD.getUsuarios;*/
+import static com.example.gasolinerajava.BBDD.createBBDD;
+import static com.example.gasolinerajava.BBDD.getUsuarios;
 
 public class Main extends Application {
     public static void main(String[] args) throws SQLException {
-       /* createBBDD();
-        getUsuarios();*/
+        createBBDD();
+        getUsuarios();
         launch(args);
     }
 
