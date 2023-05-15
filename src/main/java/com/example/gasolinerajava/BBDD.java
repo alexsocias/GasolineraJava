@@ -57,14 +57,14 @@ public abstract class BBDD {
                     "metodo VARCHAR(50))"
             );
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Usuario (" +
-                    "numero_socio INT UNSIGNED PRIMARY KEY,)"
+                    "numero_socio INT UNSIGNED PRIMARY KEY)"
             );
 
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Calificaciones (" +
                     "ID INT UNSIGNED PRIMARY KEY AUTO_INCREMENT," +
-                    "usuario_id INT UNSIGNED," +
+                    "numero_socio INT UNSIGNED," +
                     "valoracion INT," +
-                    "FOREIGN KEY (usuario_id) REFERENCES Usuario(id))"
+                    "FOREIGN KEY (numero_socio) REFERENCES Usuario(numero_socio))"
             );
 
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Combustible (" +
@@ -74,12 +74,17 @@ public abstract class BBDD {
             );
 
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Ticket (" +
-                    "id INT PRIMARY KEY," +
-                    "id_combustible int unsigned," +
+                    "id INT PRIMARY KEY AUTO_INCREMENT," +
+                    "id_combustible INT UNSIGNED," +
+                    "litros DECIMAL(10, 2)," +
                     "importe DECIMAL(10, 2)," +
                     "fecha DATE," +
-                    "FOREIGN KEY (id_combustible) REFERENCES Combustible(id))"
+                    "es_miembro TINYINT(1)," +
+                    "numero_socio INT UNSIGNED," +
+                    "FOREIGN KEY (id_combustible) REFERENCES Combustible(ID)," +
+                    "FOREIGN KEY (numero_socio) REFERENCES Usuario(numero_socio))"
             );
+
 
             // Insertar a tablas
             // Inserciones en la tabla Método de Pago
@@ -98,11 +103,10 @@ public abstract class BBDD {
             statement.executeUpdate("INSERT INTO Usuario (numero_socio) VALUES ('3456')");
 
             // Inserciones en la tabla Calificaciones
-            statement.executeUpdate("INSERT INTO Calificaciones (usuario_id, valoracion) VALUES (1, 5)");
-            statement.executeUpdate("INSERT INTO Calificaciones (usuario_id, valoracion) VALUES (2, 4)");
-            statement.executeUpdate("INSERT INTO Calificaciones (usuario_id, valoracion) VALUES (3, 3)");
-            statement.executeUpdate("INSERT INTO Calificaciones (usuario_id, valoracion) VALUES (4, 2)");
-            statement.executeUpdate("INSERT INTO Calificaciones (usuario_id, valoracion) VALUES (5, 1)");
+            statement.executeUpdate("INSERT INTO Calificaciones (numero_socio, valoracion) VALUES (213412, 5)");
+            statement.executeUpdate("INSERT INTO Calificaciones (numero_socio, valoracion) VALUES (93827, 4)");
+            statement.executeUpdate("INSERT INTO Calificaciones (numero_socio, valoracion) VALUES (4987, 2)");
+            statement.executeUpdate("INSERT INTO Calificaciones (numero_socio, valoracion) VALUES (3456, 1)");
 
             // Cerrar conexión
         } catch (SQLException e) {
@@ -110,7 +114,7 @@ public abstract class BBDD {
         }
     }
 
-    public boolean validateMember(String memberNumber) throws SQLException {
+    public static boolean validateMember(String memberNumber) throws SQLException {
         String query = "SELECT COUNT(*) FROM Usuario WHERE numero_socio = ?";
         PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
         preparedStatement.setString(1, memberNumber);
@@ -127,15 +131,30 @@ public abstract class BBDD {
         return count > 0;
     }
 
+    public static void insertTicketInfo(String combustible, String litros, String importe, String metodoPago, boolean isMember, String memberNumber) throws SQLException {
+        String query = "INSERT INTO Ticket (combustible, litros, importe, metodo_pago, is_member, member_number) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement statement = dbConnection.prepareStatement(query)) {
+            statement.setString(1, combustible);
+            statement.setString(2, litros);
+            statement.setString(3, importe);
+            statement.setString(4, metodoPago);
+            statement.setBoolean(5, isMember);
+            statement.setString(6, memberNumber);
+
+            statement.executeUpdate();
+        }
+    }
+
     public static void getUsuarios() throws SQLException {
         String query = "SELECT * FROM Usuario";
         ResultSet resultSet = statement.executeQuery(query);
 
         while (resultSet.next()) {
-            int id = resultSet.getInt("ID");
             String numero_socio = resultSet.getString("numero_socio");
             // Process the retrieved data as needed
-            System.out.println("ID: " + id + ", Numero de Socio: " + numero_socio);
+            System.out.println("Numero de Socio: " + numero_socio);
         }
         resultSet.close();
     }
@@ -149,21 +168,12 @@ public abstract class BBDD {
         }
     }
 
-    public static ResultSet getData(String query) throws SQLException {
-        ResultSet queryData = statement.executeQuery(query);
-        return queryData;
-    }
-
     // Cerrar conexión
-
-    public static void initializeConnection(){
-
-    }
-    public static void closeConnection() throws SQLException{
-        try {
-            dbConnection.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    //public static void closeConnection() throws SQLException{
+    //    try {
+    //        dbConnection.close();
+    //    } catch (SQLException e) {
+    //        throw new RuntimeException(e);
+    //    }
+    //}
 }

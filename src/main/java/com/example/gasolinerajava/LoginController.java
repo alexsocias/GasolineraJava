@@ -6,6 +6,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
+import java.sql.SQLException;
+
 public class LoginController {
 
     @FXML
@@ -69,6 +71,34 @@ public class LoginController {
                 loginButton.setDisable(true);  // Deshabilitar el botón Login
             }
         });
+
+        loginButton.setOnAction(e -> {
+            try {
+                if (siSocioRadioButton.isSelected()) {
+                    String memberNumber = numeroSocioTextField.getText();
+                    boolean isValidMember = BBDD.validateMember(memberNumber);
+
+                    if (isValidMember) {
+                        main.setIsMember(true);
+                        main.setMemberNumber(memberNumber);
+                        main.showPantallaInicial();
+                    } else {
+                        System.out.println("No es un miembro válido");
+                        // Display error message or perform desired error handling
+                    }
+                } else {
+                    main.setIsMember(false);
+                    main.setMemberNumber("");
+                    main.showPantallaInicial();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                // Handle the SQLException appropriately
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
     }
 }
 

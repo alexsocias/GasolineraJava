@@ -6,6 +6,11 @@ import javafx.scene.control.Label;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import static com.example.gasolinerajava.BBDD.dbConnection;
 
 public class TicketController {
 
@@ -56,9 +61,14 @@ public class TicketController {
         lblMemberNumber.setText("número de miembro: "+ memberNumber);
 
         try {
-            crearArchivoTicket(combustible, litrosAdjusted, importe, metodoPago, memberNumber); // Usamos el nuevo valor ajustado
+            // Usamos el nuevo valor ajustado
+            crearArchivoTicket(combustible, litrosAdjusted, importe, metodoPago, memberNumber);
+            insertTicketInfo(combustible, litros, importe, metodoPago, isMember, memberNumber);
+
         } catch(IOException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -76,6 +86,18 @@ public class TicketController {
         writer.newLine();
         writer.close();
     }
+
+    public static void insertTicketInfo(String idCombustible, String litros, String importe, String metodoPago, boolean isMember, String memberNumber) throws SQLException {
+        try {
+            String alterQuery = "ALTER TABLE MetodoPago ADD COLUMN description VARCHAR(100)";
+            Statement statement = dbConnection.createStatement();
+            statement.executeUpdate(alterQuery);
+            System.out.println("Added data to the ticket table successfully!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     private void handleVolverEmpezar() throws Exception {
